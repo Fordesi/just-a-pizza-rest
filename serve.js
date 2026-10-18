@@ -1,7 +1,7 @@
 // Local static server: node serve.js [port]  ->  http://127.0.0.1:8080
 const http = require('http'), fs = require('fs'), path = require('path');
 const root = __dirname, port = +process.argv[2] || 8080;
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.jpg': 'image/jpeg' };
 
 http.createServer((req, res) => {
   const name = req.url.split('?')[0] === '/' ? 'index.html' : decodeURIComponent(req.url.split('?')[0]);

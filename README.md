@@ -15,6 +15,18 @@ node test-i18n.js    # checks all languages define the same keys
 1. Push this folder to a GitHub repo's `main` branch.
 2. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 3. Every push to `main` runs `.github/workflows/pages.yml`, which runs the i18n test and publishes
-   `index.html`, `style.css`, `app.js`, `i18n.js` to `https://<user>.github.io/<repo>/`.
+   `index.html`, `style.css`, `app.js`, `i18n.js` and `img/` to `https://<user>.github.io/<repo>/`.
 
 All asset paths are relative, so the site works under the `/<repo>/` sub-path.
+
+## Photo credits
+
+Photos in `img/` come from [Wikimedia Commons](https://commons.wikimedia.org/), cropped and resized.
+Most are CC0. Three need credit (also shown in the page footer):
+
+- `hawaiian.jpg` (and the hero) — [Hawaiian pizza image.jpg](https://commons.wikimedia.org/wiki/File:Hawaiian_pizza_image.jpg), Elsie Hui, CC BY 2.0
+- `hawaiian-pineapple.jpg` — [Hawaiian pizza 1.jpg](https://commons.wikimedia.org/wiki/File:Hawaiian_pizza_1.jpg), @joefoodie from USA, CC BY 2.0
+- `baked-pasta.jpg` — [A Baked Pasta with Double Cheese and Ham.jpg](https://commons.wikimedia.org/wiki/File:A_Baked_Pasta_with_Double_Cheese_and_Ham.jpg), Peachyeung316, CC BY-SA 4.0
+
+CC0: `four-cheese`, `pepperoni-box` (and the hero), `fried-chicken`, `wings`, `cheesy-bread` by Andy Li;
+`pepperoni-classic`, `pepperoni-sausage` by Kurt Kaiser; `mushroom` by LEi - DESIGN.

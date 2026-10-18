@@ -34,15 +34,14 @@ a { color: inherit; text-decoration: none; }
 .search input { display: block; width: 100%; max-width: var(--wrap); margin: auto; padding: 10px 14px; font: inherit; border: 1px solid var(--line); border-radius: 8px; }
 
 /* carousel (hero + popup share it; sizes use container units so both scale) */
-.car { position: relative; overflow: hidden; container-type: inline-size; }
+.car { position: relative; overflow: hidden; container-type: inline-size; --shade: linear-gradient(90deg, #0000 15%, #000b 75%); }
 .track { display: flex; height: 100%; transition: transform .5s ease; }
-.slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: space-around; padding: 0 6cqw; }
-.s1 { background: linear-gradient(#58b4f2 0 62%, #e7c79b 62%); }
-.s2 { background: linear-gradient(120deg, #0a6fb8 55%, var(--red) 55%); }
-.art { font-size: 22cqw; line-height: 1; }
-.copy { color: #fff; text-align: center; }
+.slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: flex-end; padding: 0 8cqw; background: var(--shade), var(--photo) center / cover; }
+.s1 { --photo: url(img/hero-hawaiian.jpg); }
+.s2 { --photo: url(img/hero-pepperoni.jpg); }
+.copy { color: #fff; text-align: center; max-width: 50%; text-shadow: 0 2px 12px #0008; }
 .badge { display: inline-block; background: #fff; color: var(--red); font-weight: 700; border-radius: 99px; padding: 0 .8em; font-size: clamp(12px, 2cqw, 26px); }
-.copy h2 { margin: .2em 0; font-size: clamp(20px, 6cqw, 80px); line-height: 1.1; }
+.copy h2 { margin: .2em 0; font-size: clamp(20px, 5cqw, 64px); line-height: 1.1; }
 .copy p { margin: 0 0 1cqw; font-size: clamp(12px, 2.2cqw, 28px); }
 .price { display: inline-flex; align-items: center; gap: 1.5cqw; background: #0a6fb8; border-radius: 1cqw; padding: .5cqw 2cqw; }
 .price small { font-size: clamp(11px, 1.8cqw, 24px); max-width: 9em; text-align: left; line-height: 1.2; }
@@ -55,8 +54,9 @@ a { color: inherit; text-decoration: none; }
 .dots .on { background: var(--brand); }
 .hero { aspect-ratio: 32 / 10; }
 .sq { aspect-ratio: 1; }
-.sq .slide { flex-direction: column; justify-content: center; gap: 2cqw; }
-.sq .art { font-size: 28cqw; }
+.sq { --shade: linear-gradient(0deg, #000d, #0000 80%); }
+.sq .slide { flex-direction: column; justify-content: flex-end; gap: 2cqw; padding-bottom: 12cqw; }
+.sq .copy { max-width: none; }
 .sq .copy h2 { font-size: 9cqw; }
 .sq .copy p { font-size: 3.4cqw; }
 .sq .price b { font-size: 12cqw; }
@@ -78,8 +78,8 @@ a { color: inherit; text-decoration: none; }
 /* product grid */
 .grid { max-width: var(--wrap); margin: 36px auto 60px; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 40px 30px; }
 .card { display: flex; flex-direction: column; }
-.img { container-type: inline-size; aspect-ratio: 1; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #1e88e5 58%, var(--red) 58%); }
-.img span { font-size: 45cqw; line-height: 1; } /* cqw needs an ancestor container, so the emoji can't size itself on .img */
+.img { aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #eee; }
+.img img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .card h3 { margin: 14px 0 4px; font-size: 18px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .card p { margin: 0; color: var(--mute); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .pr { margin-top: auto; padding-top: 20px; display: flex; align-items: center; gap: 8px; }
@@ -90,6 +90,10 @@ a { color: inherit; text-decoration: none; }
 
 .ft { border-top: 1px solid var(--line); padding: 32px 16px; text-align: center; color: var(--mute); font-size: 14px; }
 .ft p { margin: 8px 0 0; }
+.credits { margin-top: 12px; font-size: 12px; }
+.credits summary { cursor: pointer; }
+.credits ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.credits a { text-decoration: underline; }
 
 /* drawers + popup */
 .dim { position: fixed; inset: 0; background: #0008; z-index: 30; }
@@ -121,6 +125,7 @@ a { color: inherit; text-decoration: none; }
   .logo { justify-self: center; font-size: 22px; }
   .right { gap: 10px; }
   .hero { aspect-ratio: 5 / 3; }
+  .copy { max-width: 62%; }
   .tabs { gap: 18px; }
 }
 @media (max-width: 600px) {

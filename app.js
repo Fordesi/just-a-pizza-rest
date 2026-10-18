@@ -6,20 +6,21 @@ const store = {
 };
 
 const LANGS = ['th', 'en', 'ja'];
-// Names/descriptions live in I18N as p{n}n / p{n}d. `sub` is the promo chip the deal belongs to.
+// Names/descriptions live in I18N as p{n}n / p{n}d. `sub` is the promo chip the deal belongs to;
+// `img` is a stock photo in img/ (illustrative, not the exact product).
 const PRODUCTS = [
-  { price: 268, was: 327, sub: 'c3' },
-  { price: 148, was: 269, sub: 'half' },
-  { price: 368, was: 498, sub: 'c2' },
-  { price: 368, was: 538, sub: 'c2' },
-  { price: 418, was: 738, sub: 'c2' },
-  { price: 378, was: 512, sub: 'single' },
-  { price: 498, was: 776, sub: 'group' },
-  { price: 558, was: 816, sub: 'group' },
-  { price: 179, was: 207, sub: 'c3' },
-  { price: 289, was: 345, sub: 'c3' },
-  { price: 119, was: 144, sub: 'single' },
-  { price: 108, was: 124, sub: 'single' },
+  { price: 268, was: 327, sub: 'c3', img: 'pepperoni-sausage' },
+  { price: 148, was: 269, sub: 'half', img: 'four-cheese' },
+  { price: 368, was: 498, sub: 'c2', img: 'pepperoni-box' },
+  { price: 368, was: 538, sub: 'c2', img: 'hawaiian' },
+  { price: 418, was: 738, sub: 'c2', img: 'mushroom' },
+  { price: 378, was: 512, sub: 'single', img: 'wings' },
+  { price: 498, was: 776, sub: 'group', img: 'baked-pasta' },
+  { price: 558, was: 816, sub: 'group', img: 'hawaiian-pineapple' },
+  { price: 179, was: 207, sub: 'c3', img: 'pepperoni-classic' },
+  { price: 289, was: 345, sub: 'c3', img: 'pepperoni-sausage' },
+  { price: 119, was: 144, sub: 'single', img: 'fried-chicken' },
+  { price: 108, was: 124, sub: 'single', img: 'cheesy-bread' },
 ];
 
 let lang = LANGS.includes(store.get('lang')) ? store.get('lang') : 'th';
@@ -32,7 +33,7 @@ const t = k => I18N[lang][k] ?? I18N.en[k] ?? k;
 /* ---- render ---- */
 const card = n => {
   const p = PRODUCTS[n - 1];
-  return `<article class="card"><div class="img"><span>🍕</span></div><h3>${t(`p${n}n`)}</h3><p>${t(`p${n}d`)}</p>` +
+  return `<article class="card"><div class="img"><img src="img/${p.img}.jpg" alt="" width="640" height="640" loading="lazy"></div><h3>${t(`p${n}n`)}</h3><p>${t(`p${n}d`)}</p>` +
     `<div class="pr"><b>฿${p.price}</b><s>฿${p.was}</s><button class="add" data-n="${n}" aria-label="${t('aria.add')}">+</button></div></article>`;
 };
 
