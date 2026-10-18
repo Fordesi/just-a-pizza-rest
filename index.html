@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pizza Clone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cookie" id="cookie">
+  <span><span data-i18n="cookie.text"></span> <a href="#" data-i18n="cookie.link"></a></span>
+  <button id="cookieOk" data-i18n="cookie.ok"></button>
+</div>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="left">
+      <button class="ic" id="menuBtn" data-i18n-aria="aria.menu">☰</button>
+      <nav class="links">
+        <a class="on" href="#" data-i18n="nav.home"></a>
+        <a href="#" data-i18n="nav.tracking"></a>
+        <a href="#" data-i18n="nav.stores"></a>
+      </nav>
+    </div>
+    <a class="logo" href="#"><b>Pizza</b>Clone</a>
+    <div class="right">
+      <div class="lang">
+        <button id="langBtn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="aria.lang">
+          <i class="code" id="langCode">TH</i><span id="langName">ไทย</span>
+        </button>
+        <ul id="langMenu" hidden>
+          <li><button data-lang="th" data-code="TH">ไทย</button></li>
+          <li><button data-lang="en" data-code="EN">English</button></li>
+          <li><button data-lang="ja" data-code="JA">日本語</button></li>
+        </ul>
+      </div>
+      <button class="ic" id="searchBtn" data-i18n-aria="aria.search">🔍</button>
+      <button class="cartbtn" id="cartBtn" data-i18n-aria="aria.cart">🧺 <span id="cartCount"></span></button>
+    </div>
+  </div>
+  <div class="search" id="searchBar" hidden>
+    <input id="q" type="search" data-i18n-ph="search.ph">
+  </div>
+</header>
+
+<main>
+  <section class="hero car" id="heroCar">
+    <div class="track">
+      <div class="slide s1">
+        <div class="art">🍕</div>
+        <div class="copy">
+          <span class="badge" data-i18n="hero.new"></span>
+          <h2 data-i18n="hero1.t"></h2>
+          <p data-i18n="hero1.s"></p>
+          <div class="price"><small data-i18n="hero1.n"></small><b>฿289</b></div>
+        </div>
+      </div>
+      <div class="slide s2">
+        <div class="art">🍕</div>
+        <div class="copy">
+          <span class="badge" data-i18n="hero.new"></span>
+          <h2 data-i18n="hero2.t"></h2>
+          <p data-i18n="hero2.s"></p>
+          <div class="price"><small data-i18n="hero2.n"></small><b>฿69</b></div>
+        </div>
+      </div>
+    </div>
+    <button class="nav prev" data-i18n-aria="aria.prev">‹</button>
+    <button class="nav next" data-i18n-aria="aria.next">›</button>
+    <div class="dots"></div>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button data-cat="promo" data-i18n="tab.promo"></button>
+    <button data-cat="new" data-i18n="tab.new"></button>
+    <button data-cat="pizza" data-i18n="tab.pizza"></button>
+    <button data-cat="fold" data-i18n="tab.fold"></button>
+    <button data-cat="pasta" data-i18n="tab.pasta"></button>
+    <button data-cat="snacks" data-i18n="tab.snacks"></button>
+    <button data-cat="bread" data-i18n="tab.bread"></button>
+    <button data-cat="dips" data-i18n="tab.dips"></button>
+    <button data-cat="drinks" data-i18n="tab.drinks"></button>
+  </div>
+
+  <div class="chips">
+    <button data-sub="all" data-i18n="chip.all"></button>
+    <button data-sub="c3" data-i18n="chip.c3"></button>
+    <button data-sub="half" data-i18n="chip.half"></button>
+    <button data-sub="c2" data-i18n="chip.c2"></button>
+    <button data-sub="group" data-i18n="chip.group"></button>
+    <button data-sub="single" data-i18n="chip.single"></button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="ft">
+  <a href="#" data-i18n="foot.privacy"></a>
+  <p data-i18n="foot.note"></p>
+</footer>
+
+<div class="dim" id="dim" hidden></div>
+
+<aside class="drawer l" id="navDrawer" hidden>
+  <button class="ic x" data-close data-i18n-aria="aria.close">✕</button>
+  <p class="auth"><a href="#" data-i18n="nav.login"></a> / <a href="#" data-i18n="nav.register"></a></p>
+  <a href="#" data-i18n="nav.home"></a>
+  <a href="#" data-i18n="nav.tracking"></a>
+  <a href="#" data-i18n="nav.stores"></a>
+  <a href="#" data-i18n="nav.about"></a>
+  <a href="#" data-i18n="nav.contact"></a>
+</aside>
+
+<aside class="drawer r" id="orderDrawer" hidden>
+  <button class="ic x" data-close data-i18n-aria="aria.close">✕</button>
+  <h2 data-i18n="order.title"></h2>
+  <div class="seg">
+    <button class="on" data-i18n="order.delivery"></button>
+    <button data-i18n="order.pickup"></button>
+  </div>
+  <p class="addr"><span data-i18n="order.addr"></span> <button data-i18n="order.addAddr"></button></p>
+  <div id="orderBody"></div>
+</aside>
+
+<div class="modal" id="popup" role="dialog" aria-modal="true" hidden>
+  <div class="pop">
+    <div class="car sq" id="popCar">
+      <div class="track"></div>
+      <button class="nav prev" data-i18n-aria="aria.prev">‹</button>
+      <button class="nav next" data-i18n-aria="aria.next">›</button>
+      <div class="dots"></div>
+    </div>
+    <footer>
+      <label><input type="checkbox" id="pop7"> <span data-i18n="popup.dont"></span></label>
+      <button id="popClose" data-i18n="popup.close"></button>
+    </footer>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
